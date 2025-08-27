@@ -14,7 +14,7 @@ This project implements a **serverless image processing application** where user
 ![Architecture Diagram](architecture-diagram.png)
 
 **Description:**
-1. **User uploads image** → S3 Source Bucket.
+1. **User uploads image** → S3 Source Bucket. (you can use upload.py code for uploading the image)
 2. **S3 triggers Lambda** → Lambda retrieves the image.
 3. **Image is processed** → Resized and Watermarked.
 4. **Processed image uploaded** → S3 Destination Bucket.
