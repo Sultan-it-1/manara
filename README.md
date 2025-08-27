@@ -14,7 +14,7 @@ This project implements a **serverless image processing application** where user
 ![Architecture Diagram](architecture-diagram.png)
 
 **Description:**
-1. **User uploads image** → S3 Source Bucket. (you can use upload.py code for uploading the image)
+1. **User uploads image** → S3 Source Bucket. (you can use upload.py code  only to send image unprossced to s3 source)
 2. **S3 triggers Lambda** → Lambda retrieves the image.
 3. **Image is processed** → Resized and Watermarked.
 4. **Processed image uploaded** → S3 Destination Bucket.
@@ -26,7 +26,7 @@ This project implements a **serverless image processing application** where user
 serverless-image-processing/
 ├─ README.md
 ├─ lambda_function.py
-├─ requirements.txt
+├─ opload.py  
 ├─ architecture-diagram.png
 └─ scripts/
 └─ flask_imgproxy.py
