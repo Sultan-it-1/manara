@@ -23,3 +23,36 @@ This project implements a **serverless image processing application** where user
 ---
 
 ## Project Structure
+serverless-image-processing/
+├─ README.md
+├─ lambda_function.py
+├─ requirements.txt
+├─ architecture-diagram.png
+└─ scripts/
+└─ flask_imgproxy.py
+
+---
+
+## Setup Instructions
+
+### 1. S3 Buckets
+- Create **Source Bucket** and **Destination Bucket**.
+- Set **S3 trigger** on Source Bucket to invoke Lambda on `PUT` events.
+
+### 2. Lambda Function
+- Copy `lambda_function.py` code into AWS Lambda.
+- Set handler: `lambda_function.lambda_handler`.
+- Add environment variables:
+  - `SOURCE_BUCKET=<source_bucket_name>`
+  - `DEST_BUCKET=<destination_bucket_name>`
+  - `IMG_PROXY_URL=<EC2_IP_or_Imgproxy_URL>`
+- Timeout: 10+ seconds
+- Memory: 128 MB or higher
+
+### 3. Flask Imgproxy (Optional)
+- Place `flask_imgproxy.py` on an EC2 instance.
+- Install dependencies:
+```bash
+sudo yum install python3 -y
+python3 -m pip install --user flask pillow
+
